@@ -1,6 +1,6 @@
 class Controller {
     home() {
-        return "gogogo";
+        return "test function home";
     }
 }
 module.exports = Controller;

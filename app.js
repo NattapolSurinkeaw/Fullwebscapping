@@ -1,12 +1,15 @@
-const Controller = require('./controllers/controller');
-const http = require('http');
+const Controller = require('./controllers/controller')
+const express = require('express')
+const productRoute = require('./Routes/product')
+
+const app = express();
 
 const controller = new Controller
-const server = http.createServer(function (req, res) {
 
+app.use(productRoute)
+app.get('/getmessage', (req, res) => {
+    res.send(controller.home());
 })
 
-console.log(controller.home())
-
-server.listen(8001)
+app.listen(8001, () => console.log("start with port 8001"))
 
