@@ -1,13 +1,17 @@
 const Controller = require('./controllers/controller')
 const express = require('express')
-const productRoute = require('./Routes/product')
+const routeWeb = require('./Routes/web')
+const routeApi = require('./Routes/api')
+
 
 const app = express();
 
 const controller = new Controller
 
-app.use(productRoute)
-app.get('/getmessage', (req, res) => {
+app.use(routeWeb)
+app.use(routeApi)
+
+app.get('/test', (req, res) => {
     res.send(controller.home());
 })
 
